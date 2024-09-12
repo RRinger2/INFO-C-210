@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Account {
 //Im not sure if we just hand in these files in pieces or combine code since this derives from part 1. I hope not because thatd be easier to not have to join the codes
     private Account[] accounts;
-
+//also I'll be sure to delete the comments asking for help to clean it up
     public Account() {
 //creates 8 accounts number 0-7 and sets their balance to 50
         accounts = new Account[8];
