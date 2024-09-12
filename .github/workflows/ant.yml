@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Account {
-
+//Im not sure if we just hand in these files in pieces or combine code since this derives from part 1. I hope not because thatd be easier to not have to join the codes
     private Account[] accounts;
 
     public Account() {
-
+//creates 8 accounts number 0-7 and sets their balance to 50
         accounts = new Account[8];
         for (int i = 0; i < 8; i++) {
             accounts[i] = new Account();
@@ -13,7 +13,7 @@ public class Account {
             accounts[i].setBalance(50);
         }
     }
-
+//might have trouble with this line 
     public double getAccountBalance(int id) {
         for (Account account : accounts) {
             if (account.getId() == id) {
@@ -22,7 +22,7 @@ public class Account {
         }
         return 0.0;
     }
-
+//some of these lines are from part 1 code but with added function as requested
     public void withdrawAmount(double amount, int id) {
         for (Account account : accounts) {
             if (account.getId() == id) {
@@ -30,7 +30,7 @@ public class Account {
             }
         }
     }
-
+//let me know if there was a better way to do these last 2 lines, i guarantee there is
     public void depositAmount(double amount, int id) {
         for (Account account : accounts) {
             if (account.getId() == id) {
@@ -40,7 +40,7 @@ public class Account {
     }
 
     public static void main(String[] args) {
-
+// the menu as I call it. prompts the user with 4 options to choose. you first enter the ID number then you can access the menu and its functions
         UserAccounts accounts = new UserAccounts();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter an id: ");
@@ -53,7 +53,7 @@ public class Account {
             System.out.println("4: exit");
             System.out.print("Enter a choice: ");
             int choice = scanner.nextInt();
-
+//upon choosing option 4, the user should be prompted again to enter another ID and program runs forever as requested
             if (choice == 4) {
                 break;
             }
@@ -66,7 +66,7 @@ public class Account {
                 double amount = scanner.nextDouble();
                 accounts.withdrawAmount(amount, id);
             }
-
+//these are the functions to withdraw and deposit and should work when asked for a balance check
             if (choice == 3) {
                 System.out.print("Enter an amount to deposit: ");
                 double depositAmount = scanner.nextDouble();
