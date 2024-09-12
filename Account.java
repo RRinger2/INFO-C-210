@@ -1,85 +1,80 @@
-import java.time.LocalDate; 
-
+import java.util.Scanner;
+//i get a lot errors when I try to run it but I hope thats mostly due to it needing some code from part 1
 public class Account {
-	private int id; 
-	private double balance; 
-	private double annualInterestRate; 
-	private LocalDate dateCreated; 
-	
-	
-	//default constructor 
-	public Account() {
-		this.id = 0; 
-		this.balance = 0.0; 
-	} // end default constructor 
-	
-	//non-default constructor 
-	public Account (int id, double balance, double annualInterestRate) {
-		this.id = id; 
-		this.balance = balance; 
-		this.annualInterestRate= annualInterestRate; 
-		
-	}//end non-default constructor 
+//Im not sure if we just hand in these files in pieces or combine code since this derives from part 1. I hope not because thatd be easier to not have to join the codes
+    private Account[] accounts;
 
-	//set/mutator methods 
-	public void setID(int id) {
-		this.id = id; 
-	} // end setID
-	
-	public void setAnnualInterestRate (double annualInterestRate) {
-		this.annualInterestRate = annualInterestRate; 
-	} // end setAnnualInterestRate
-	
-	//get/accessor methods 
-	public int getID(int id) {
-		return this.id = id; 
-	} // end getID
-	
-	public LocalDate getDateCreated (LocalDate dateCreated) {
-		return this.dateCreated = LocalDate.now(); 
-	} // end getDateCreated 
-	
-	public double getBalance(double balance) {
-		return this.balance = balance; 
-	} // end getBalance
-	
-	public double getAnnualInterestRate (double annualInterestRate) {
-		return this.annualInterestRate = annualInterestRate; 
-	} // end getAnnualInterestRate
-	
-	//Problem 1 # 9 
-	public double getMonthlyInterestRate() {
-		//need to write code to calculate annualInterestRate / 12 (remember 5% = .05) 
-		double monthlyInterestRate; 
-		return monthlyInterestRate;
-	} // end getMonthlyInterestRate
-	
-	// Problem 1 # 10
-	public double getMonthlyInterest() {
-		//need to write code to calculate monthlyInterestRate * balance (remember 5% = .05) 
-		double monthlyInterest;
-		return monthlyInterest;
-	} // end getMonthlyInterestRate
-	
-	// Problem 1 # 11 
-	public double withdraw (double withdrawAmount) {
-		// need to write code to withdraw a specified amount into the account 
-		double newBalance; 
-		return newBalance; 
-	} // end withdraw 
-	
-	// Problem 1 # 12 
-	public double deposit (double depositAmount) {
-		// need to write code to deposit a specified amount into the account 
-		double newBalance; 
-		return newBalance; 
-	} // end deposit 
+    public Account() {
+//creates 8 accounts number 0-7 and sets their balance to 50
+        accounts = new Account[8];
+        for (int i = 0; i < 8; i++) {
+            accounts[i] = new Account();
+            accounts[i].setId(i + 1);
+            accounts[i].setBalance(50);
+        }
+    }
+//might have trouble with this line 
+    public double getBalance(int id) {
+        for (Account account : accounts) {
+            if (account.getId() == id) {
+                return account.getBalance();
+            }
+        }
+        return 0.0;
+    }
+//some of these lines are from part 1 code but with added function as requested, however not all of part 1's code is here because not all pertains to this part so I thought it was easier to have not needed code out of the way
+    public double withdraw (double withdrawAmount) {
+        for (Account account : accounts) {
+            if (account.getId() == id) {
+                account.setBalance(account.getBalance() - amount);
+            }
+        }
+    }
+//let me know if there was a better way to do these last 2 lines, i guarantee there is
+   public double deposit (double depositAmount) {
+        for (Account account : accounts) {
+            if (account.getId() == id) {
+                account.setBalance(account.getBalance() + amount);
+            }
+        }
+    }
 
-	public String toString() { 
-		String output = "Account ID: " + this.id; 
-		output+= "\nAccount Balance: " + this.balance; 
-		output+= "\nAnnual Intereset Rate: " + this.annualInterestRate + "\n"; 
-		
-		return output; 
-	}
-} //end class
+    public static void main(String[] args) {
+// the menu as I call it. prompts the user with 4 options to choose. you first enter the ID number then you can access the menu and its functions
+        UserAccounts accounts = new UserAccounts();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an id: ");
+        int id = scanner.nextInt();
+        while (true) {
+            System.out.println("Main Menu");
+            System.out.println("1: check balance");
+            System.out.println("2: withdraw");
+            System.out.println("3: deposit");
+            System.out.println("4: exit");
+            System.out.print("Enter a choice: ");
+            int choice = scanner.nextInt();
+//upon choosing option 4, the user should be prompted again to enter another ID and program runs forever as requested
+            if (choice == 4) {
+                break;
+            }
+            if (choice == 1) {
+                System.out.println("The balance is " + accounts.getAccountBalance(id));
+                continue;
+            }
+            if (choice == 2) {
+                System.out.print("Enter an amount to withdraw: ");
+                double amount = scanner.nextDouble();
+                accounts.withdrawAmount(amount, id);
+            }
+//these are the functions to withdraw and deposit and should work when asked for a balance check
+            if (choice == 3) {
+                System.out.print("Enter an amount to deposit: ");
+                double depositAmount = scanner.nextDouble();
+                accounts.depositAmount(depositAmount, id);
+            }
+            
+
+        }
+
+    }
+}
