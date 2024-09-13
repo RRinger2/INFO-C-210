@@ -17,6 +17,3 @@ public class useAccount {
 
 } //end useAccount
 
-
-//This is an example of Fetching in github for Mustafa! here you go enjoy!
-// Hello

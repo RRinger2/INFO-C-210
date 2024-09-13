@@ -1,96 +1,40 @@
-import java.util.Scanner;
-
+/**
+ * Bank account with a unique ID and a balance.
+ * Slightly Above Average Team
+ * 9/13/2024
+ */
 public class Account {
-    //Im not sure if we just hand in these files in pieces or combine code since this derives from part 1. I hope not because thatd be easier to not have to join the codes
-    private final Account[] accounts;
+    private int id; // Unique identifier for the account
+    private double balance; // Current balance of the account
 
-    public Account() {
-//creates 8 accounts number 0-7 and sets their balance to 50
-        accounts = new Account[8];
-        for (int i = 0; i < 8; i++) {
-            accounts[i] = new Account();
-            accounts[i].setId(i + 1);
-            accounts[i].setBalance(50);
-        }
-    }
-    //might have trouble with this line
-    public double getAccountBalance(int id) {
-        for (Account account : accounts) {
-            if (account.getId() == id) {
-                return account.getBalance();
-            }
-        }
-        return 0.0;
-    }
-    //some of these lines are from part 1 code but with added function as requested
-    public void withdrawAmount(double amount, int id) {
-        for (Account account : accounts) {
-            if (account.getId() == id) {
-                account.setBalance((int) (account.getBalance() - amount));
-            }
-        }
-    }
-    //let me know if there was a better way to do these last 2 lines, i guarantee there is
-    public void depositAmount(double amount, int id) {
-        for (Account account : accounts) {
-            if (account.getId() == id) {
-                account.setBalance((int) (account.getBalance() + amount));
-            }
-        }
+    // Constructs a new Account with the given ID and an initial balance of 0.
+    public Account(int id) {
+        this.id = id;
+        this.balance = 0;
     }
 
-    public static void main(String[] args) {
-// the menu as I call it. prompts the user with 4 options to choose. you first enter the ID number then you can access the menu and its functions
-        UserAccounts accounts = new UserAccounts();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an id: ");
-        int id = scanner.nextInt();
-        while (true) {
-            System.out.println("Main Menu");
-            System.out.println("1: check balance");
-            System.out.println("2: withdraw");
-            System.out.println("3: deposit");
-            System.out.println("4: exit");
-            System.out.print("Enter a choice: ");
-            int choice = scanner.nextInt();
-//upon choosing option 4, the user should be prompted again to enter another ID and program runs forever as requested
-            if (choice == 4) {
-                break;
-            }
-            if (choice == 1) {
-                System.out.println("The balance is " + accounts.getAccountBalance(id));
-                continue;
-            }
-            if (choice == 2) {
-                System.out.print("Enter an amount to withdraw: ");
-                double amount = scanner.nextDouble();
-                accounts.withdrawAmount(amount, id);
-            }
-//these are the functions to withdraw and deposit and should work when asked for a balance check
-            if (choice == 3) {
-                System.out.print("Enter an amount to deposit: ");
-                double depositAmount = scanner.nextDouble();
-                accounts.depositAmount(depositAmount, id);
-            }
-
-
-        }
-
-    }
-//if someone can identify whats the deal with these lines of code I'd appreciate it
-    private void setId(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Sets the balance of the account to the given amount.
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
-    private void setBalance(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Returns the current balance of the account.
+    public double getBalance() {
+        return balance;
     }
 
-    private int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Returns the unique ID of the account.
+    public int getId() {
+        return id;
     }
 
-    private double getBalance() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Withdraws the given amount from the account.
+    public void withdrawAmount(double amount) {
+        balance -= amount;
+    }
+
+    // Deposits the given amount into the account.
+    public void depositAmount(double amount) {
+        balance += amount;
     }
 }
