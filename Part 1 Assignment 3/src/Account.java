@@ -1,7 +1,8 @@
 
 
-// I do not know if this is the right package for data opened instance variable
-import javax.xml.crypto.Data;
+// I do not know if this is the right package for date opened instance variable
+
+import java.util.Date;
 
 
 //BankAccount.java
@@ -10,19 +11,18 @@ import javax.xml.crypto.Data;
 
 
 public class Account {
-
     // Instance Variable
+    private final Date dateopened;
     private String accountNumber;
     private double balance;
-    private Data   dataopened;
 
 //non-default Constructor to initialize account number and balance
 
-    public Account(String accountNumber, double balance, Data dataopened  ) {
+    public Account(String accountNumber, double balance, Date dateopened  ) {
 
         this.accountNumber = accountNumber;
         this.balance = balance;
-        this.dataopened = dataopened;
+        this.dateopened = dateopened;
     }
 
 // Method to deposit an amount into the account
