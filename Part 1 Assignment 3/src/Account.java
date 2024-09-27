@@ -15,9 +15,9 @@ public class Account {
     
     //default constructor 
     public Account() {
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.dateOpened = dateOpened;
+        this.accountNumber = "";
+        this.balance = 0.0;
+        this.dateOpened = LocalDate.now();
         // added the default constructor - AB
     } //close default constructor 
 
