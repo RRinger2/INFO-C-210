@@ -47,21 +47,25 @@ public class Account {
 	} //close getAccountNumber
 	
 	public LocalDate getDateOpened() {
-		return this.dateOpened;
+		return this.dateOpened = LocalDate.now();
 	} //close getDateOpened
 
     // Method to deposit an amount into the account
-    public void makeDeposit(double amount) {
-        balance += amount;
+    protected double makeDeposit(double amount) {
+        balance = this.balance + amount;
+        return balance; 
     } // close makeDeposit
 
 // Method to withdraw an amount from the account
 
-    public void makeWithdrawl(double amount) {
+    protected double makeWithdrawl(double amount) {
     	//if the balance is sufficient for the withdrawal
         if (balance >= amount) { 
+			balance = this.balance - amount;
+			return balance;
         } else { // if the balance is not sufficient for the withdrawal - print not enough money
-            System.out.println("Not enough money");
+           System.out.println("Not enough money. \nCurrent balance: " + balance);
+		   return balance;
         } // close if else 
     } // close makeWithdrawal 
 
@@ -70,6 +74,14 @@ public class Account {
         // Return the current balance
         return balance;
 	} // close getBalance 
+    
+    //master toString Method 
+    public String toString() {
+	    String output = "Account Number: " + this.accountNumber;
+	    output += "\nBalance: " + this.balance;
+	    output += "\nDate Opened: " + this.dateOpened;
+	    return output;	
+    } // close toString
     
 } // close Account Class 
 

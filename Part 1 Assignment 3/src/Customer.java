@@ -1,9 +1,18 @@
 
+// need to add branch to customer object 
+
+import java.util.ArrayList; 
+import java.time.LocalDate;
+
 public class Customer {
 	//instance variables 
 	private String name; 
 	private String address; 
 	private String phone; 
+	
+	//ArrayList to hold all accounts owned by the Customer
+	protected ArrayList<Account> customerAccounts = new ArrayList<Account>(); 
+
 	
 	//default constructor 
 	public Customer() {
@@ -44,5 +53,23 @@ public class Customer {
 	public String getPhone() {
 		return this.phone; 
 		} // close getPhone
+	
+	protected void addAccount(Account account) {
+		customerAccounts.add(account);
+	} // close addAccount
+	
+	// method to remove a account
+	protected void removeAccount(Account account) {
+		customerAccounts.remove(account);
+	} // close addAccount
+	
+	public String toString() {
+		String output = "Name: " + this.name + "\n"; 
+		output += "Address: " + this.address + "\n"; 
+		output += "Phone: " + this.phone + "\n"; 
+		output +="\n"; 		
+		//loops through each account and prints it out
+		return output; 
+		}
 	
 	} // close Customer Classs
