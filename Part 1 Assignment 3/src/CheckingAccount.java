@@ -1,5 +1,9 @@
 
 import java.time.LocalDate; 
+import java.text.DecimalFormat;
+
+//CheckingAccount.java
+//Parent class Account
 
 public final class CheckingAccount extends Account {
 	
@@ -18,6 +22,7 @@ public final class CheckingAccount extends Account {
 	
 	protected double minimumBalance() {
 		this.minimumBalance = 0.0;
+		
 		return minimumBalance;
 	} // establishing standard minimum balance for checking accounts 
 	

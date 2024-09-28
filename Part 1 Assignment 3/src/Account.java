@@ -1,6 +1,5 @@
 
 
-// I changed this import and the related variables to the same java utility we used for the date in assignment 2 - AB
 import java.text.DecimalFormat;
 import java.time.LocalDate; 
 
@@ -44,7 +43,13 @@ public class Account {
 	//get/accessor methods
 	public String getAccountNumber() {
 		return this.accountNumber;
-	} //close getAccountNumber
+	} //close getAccountNumber	
+
+	public double getBalance() {
+		DecimalFormat df = new DecimalFormat("0.00");
+		df.format(balance);
+		return this.balance;
+	} //close getBalance	
 	
 	public LocalDate getDateOpened() {
 		return this.dateOpened = LocalDate.now();
@@ -68,18 +73,13 @@ public class Account {
 		   return balance;
         } // close if else 
     } // close makeWithdrawal 
-
-    // Method to get the current balance
-    public double getBalance() {
-        // Return the current balance
-        return balance;
-	} // close getBalance 
     
     //master toString Method 
     public String toString() {
 	    String output = "Account Number: " + this.accountNumber;
 	    output += "\nBalance: " + this.balance;
 	    output += "\nDate Opened: " + this.dateOpened;
+	    output += "\n";
 	    return output;	
     } // close toString
     

@@ -1,4 +1,6 @@
 
+//src\SavingsAccount.java
+
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 
@@ -43,8 +45,7 @@ public final class SavingsAccount extends Account {
     public String toString() {
     	
 		DecimalFormat df = new DecimalFormat("0.00");
-		df.format(balance);
-		df.format(interestRate)
+		df.format(interestRate); 
 		
 	    String output = "Account Type: Savings\n";
 	    output += super.toString(); 
