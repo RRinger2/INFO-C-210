@@ -58,7 +58,6 @@ public final class PersonalCustomer extends Customer {
 		output += "Work Phone: " + this.workPhone + "\n"; 
 		output += "\n"; 
 		output += "Accounts:\n";
-		output += "\n"; 
 		for (Account account : customerAccounts) {
 			output += account.toString() + "\n";
 		}

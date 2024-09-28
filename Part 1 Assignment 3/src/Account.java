@@ -14,6 +14,9 @@ public class Account {
     protected LocalDate dateOpened;
     public String accountType; 
     
+	DecimalFormat df = new DecimalFormat("0.00");
+
+    
     //default constructor 
     public Account() {
         this.accountNumber = "";
@@ -47,8 +50,6 @@ public class Account {
 	} //close getAccountNumber	
 
 	public double getBalance() {
-		DecimalFormat df = new DecimalFormat("0.00");
-		df.format(balance);
 		return this.balance;
 	} //close getBalance	
 	
@@ -82,7 +83,7 @@ public class Account {
     //master toString Method 
     public String toString() {
 	    String output = "Account Number: " + this.accountNumber;
-	    output += "\nBalance: $" + this.balance;
+	    output += "\nBalance: $" + df.format(this.balance);
 	    output += "\nDate Opened: " + this.dateOpened;
 	    return output;	
     } // close toString

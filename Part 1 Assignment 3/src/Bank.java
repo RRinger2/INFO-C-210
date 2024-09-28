@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Bank {
 	
 	public static ArrayList<Branch> branches = new ArrayList<Branch>(); 
+	static DecimalFormat df = new DecimalFormat("0.00");
 
     public static void main(String[] args) {
-    
+    	    
     	//creating Chicago branch
     	Branch chicago = new Branch("123 Main", "Chicago", "111-111-1111"); 
     	
@@ -75,6 +76,7 @@ public class Bank {
     
     //method to display customer info and their accounts
     public static String displayCustomers(Customer customer) {
+    	
         String output = "Customer Name: " + customer.getName() + "\n";
 	    output += "Customer Address: " + customer.getAddress() + "\n";
 	    output += "Customer Phone Number: " + customer.getPhone() + "\n";
@@ -82,9 +84,10 @@ public class Bank {
 	    
 	    //for loop to iterate through customerAccounts ArrayList
 	    for (Account account : customer.getCustomerAccounts()) {
+	    	
 	    	output+= "Account Type: " + account.getAccountType() + "\n";
     	    output += "Account Number: " + account.getAccountNumber() + "\n"; 
-    	    output += "Account Balance: " + account.getBalance() + "\n";
+    	    output += "Account Balance: " + account.getBalance() + " ";
 		    output += "\n";
 	    } // close for loop 
 	    return output;	
