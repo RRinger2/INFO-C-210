@@ -68,7 +68,6 @@ public class Customer {
 		output += "Address: " + this.address + "\n"; 
 		output += "Phone: " + this.phone + "\n"; 
 		output +="\n"; 		
-		//loops through each account and prints it out
 		return output; 
 		}
 	

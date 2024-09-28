@@ -1,4 +1,5 @@
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public final class SavingsAccount extends Account {
@@ -20,7 +21,7 @@ public final class SavingsAccount extends Account {
 		return interestRate;
 	} // close constructor 
 	
-	protected double getMonthlyInterestRate() {
+	public double getMonthlyInterestRate() {
 		//calculates monthly interest rate 
 		double NUM_OF_MONTHS = 12; 
 		double DECIMAL_PERCENTAGE = 100; 
@@ -30,7 +31,7 @@ public final class SavingsAccount extends Account {
 		return monthlyInterestRate;
 	} // end getMonthlyInterestRate
 	
-	protected double getMonthlyInterest() {
+	public double getMonthlyInterest() {
 		//calculates monthly interest earned on savings account
 		double DECIMAL_PERCENTAGE = 100; 
 		double monthlyInterestRate = this.getMonthlyInterestRate(); 
@@ -40,6 +41,11 @@ public final class SavingsAccount extends Account {
 	} // end getMonthlyInterestRate
 	
     public String toString() {
+    	
+		DecimalFormat df = new DecimalFormat("0.00");
+		df.format(balance);
+		df.format(interestRate)
+		
 	    String output = "Account Type: Savings\n";
 	    output += super.toString(); 
 	    output += "\nInterest Rate: " + this.interestRate;

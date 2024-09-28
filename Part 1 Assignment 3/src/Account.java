@@ -1,6 +1,7 @@
 
 
 // I changed this import and the related variables to the same java utility we used for the date in assignment 2 - AB
+import java.text.DecimalFormat;
 import java.time.LocalDate; 
 
 //BankAccount.java
@@ -11,14 +12,13 @@ public class Account {
    // Instance Variables
     private String accountNumber;
     private double balance;
-    private LocalDate dateOpened;
+    protected LocalDate dateOpened;
     
     //default constructor 
     public Account() {
         this.accountNumber = "";
         this.balance = 0.0;
         this.dateOpened = LocalDate.now();
-        // added the default constructor - AB
     } //close default constructor 
 
     //non-default Constructor to initialize account number and balance
