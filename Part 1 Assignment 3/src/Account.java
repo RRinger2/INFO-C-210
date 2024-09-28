@@ -12,6 +12,7 @@ public class Account {
     private String accountNumber;
     private double balance;
     protected LocalDate dateOpened;
+    public String accountType; 
     
     //default constructor 
     public Account() {
@@ -54,6 +55,10 @@ public class Account {
 	public LocalDate getDateOpened() {
 		return this.dateOpened = LocalDate.now();
 	} //close getDateOpened
+	
+	public String getAccountType() {
+		return this.accountType;
+	} //close getAccountType
 
     // Method to deposit an amount into the account
     protected double makeDeposit(double amount) {
@@ -77,9 +82,8 @@ public class Account {
     //master toString Method 
     public String toString() {
 	    String output = "Account Number: " + this.accountNumber;
-	    output += "\nBalance: " + this.balance;
+	    output += "\nBalance: $" + this.balance;
 	    output += "\nDate Opened: " + this.dateOpened;
-	    output += "\n";
 	    return output;	
     } // close toString
     

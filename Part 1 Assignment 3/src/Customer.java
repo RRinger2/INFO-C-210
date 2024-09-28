@@ -9,10 +9,8 @@ public class Customer {
 	private String name; 
 	private String address; 
 	private String phone; 
+	private ArrayList<Account> customerAccounts = new ArrayList<Account>();
 	
-	//ArrayList to hold all accounts owned by the Customer
-	protected ArrayList<Account> customerAccounts = new ArrayList<Account>(); 
-
 	
 	//default constructor 
 	public Customer() {
@@ -29,17 +27,25 @@ public class Customer {
 		} // close non-default constructor 
 	
 	//set/mutator methods 
-	public void setName(String name) {
+	public String setName(String name) {
 		this.name = name; 
+		return name;
 		} // close setName 
 	
-	public void setAddress(String address) {
+	public String setAddress(String address) {
 		this.address = address; 
+		return address; 
 		} // close setAddress
 	
-	public void setPhone(String phone) {
+	public String setPhone(String phone) {
 		this.phone = phone; 
+		return phone; 
 		} // close setPhone
+	
+	public ArrayList<Account> setCustomerAccounts(Account account){
+		customerAccounts.add(account); 
+		return customerAccounts;
+	}
 	
 	//get/accessor methods 
 	public String getName() {
@@ -54,20 +60,14 @@ public class Customer {
 		return this.phone; 
 		} // close getPhone
 	
-	protected void addAccount(Account account) {
-		customerAccounts.add(account);
-	} // close addAccount
-	
-	// method to remove a account
-	protected void removeAccount(Account account) {
-		customerAccounts.remove(account);
-	} // close addAccount
+	public ArrayList<Account> getCustomerAccounts() {
+		return customerAccounts;
+	}
 	
 	public String toString() {
 		String output = "Name: " + this.name + "\n"; 
 		output += "Address: " + this.address + "\n"; 
 		output += "Phone: " + this.phone + "\n"; 
-		output +="\n"; 		
 		return output; 
 		}
 	

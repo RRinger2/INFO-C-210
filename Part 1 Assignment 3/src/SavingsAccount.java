@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public final class SavingsAccount extends Account {
 	private double interestRate; 
+	DecimalFormat df = new DecimalFormat("0.00");
+	public String accountType = "Savings"; 
 
 	//constructor 
 	public SavingsAccount(String accountNumber, double balance, LocalDate dateOpened, double interestRate) {
@@ -33,24 +35,25 @@ public final class SavingsAccount extends Account {
 		return monthlyInterestRate;
 	} // end getMonthlyInterestRate
 	
-	public double getMonthlyInterest() {
+	public String getMonthlyInterest() {
 		//calculates monthly interest earned on savings account
 		double DECIMAL_PERCENTAGE = 100; 
 		double monthlyInterestRate = this.getMonthlyInterestRate(); 
 		double monthlyInterestToDecimal = monthlyInterestRate / DECIMAL_PERCENTAGE; 
 		double monthlyInterest = monthlyInterestToDecimal * this.getBalance();
-		return monthlyInterest;
+		return df.format(monthlyInterest);
 	} // end getMonthlyInterestRate
 	
+	public String getAccountType() {
+		return accountType; 
+	}
+
     public String toString() {
-    	
-		DecimalFormat df = new DecimalFormat("0.00");
-		df.format(interestRate); 
-		
+    	//formatting interest rate    	
 	    String output = "Account Type: Savings\n";
 	    output += super.toString(); 
-	    output += "\nInterest Rate: " + this.interestRate;
-	    output += "\nMonthly Interest: " + this.getMonthlyInterest() + "\n"; 
+	    output += "\nInterest Rate: " + this.interestRate + "%";
+	    output += "\nMonthly Interest: $" + this.getMonthlyInterest() + "\n"; 
 	    output += "\n";
 	    return output;	
     } // close toString

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 	private String branchAddress; 
 	private String branchName; 
 	private String branchPhoneNumber; 
+	
+	//ArrayList to hold all customers at the branch
 	private ArrayList<Customer> branchCustomers = new ArrayList<Customer>(); 
 	
 	//default constructor 
@@ -37,6 +39,11 @@ import java.util.ArrayList;
 		return branchPhoneNumber;
 		} // close setBranchPhoneNumber 
 	
+	public ArrayList<Customer> setBranchCustomer(Customer Customer) {
+		branchCustomers.add(Customer); 
+		return branchCustomers;
+	}
+	
 	//get/accessor methods 
 	public String getBranchAddress() {
 		return this.branchAddress; 
@@ -49,6 +56,10 @@ import java.util.ArrayList;
 	public String getBranchPhoneNumber() {
 		return this.branchPhoneNumber; 
 		} // close getBranchPhoneNumber 
+	
+	public ArrayList<Customer> getBranchCustomers() {
+		return branchCustomers;
+	}
 	
 	// method to add a customer
 	protected void addCustomer(Customer customer) {
@@ -65,7 +76,7 @@ import java.util.ArrayList;
 		output += "Branch Address: " + this.branchAddress + "\n";
 		output += "Branch Phone Number: " + this.branchPhoneNumber + "\n";
 		output += "\n";
-		output += "Customers:\n";
+		output += "Branch Customers:\n";
 		for (Customer customer : branchCustomers) {
 			output += customer.toString() + "\n";
 		}

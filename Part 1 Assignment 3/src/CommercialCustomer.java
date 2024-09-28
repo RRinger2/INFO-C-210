@@ -1,10 +1,13 @@
-
+import java.util.ArrayList;
 
 public final class CommercialCustomer extends Customer {
 	
 	private int creditRating; 
 	private String contactPerson; 
 	private String contactPersonPhone;
+	//ArrayList to hold all accounts owned by the Customer
+	protected ArrayList<Account> customerAccounts = new ArrayList<Account>(); 
+
 	
 	//constructor
 	public CommercialCustomer(String name, String address, String phone, 
@@ -28,6 +31,11 @@ public final class CommercialCustomer extends Customer {
 		this.contactPersonPhone = contactPersonPhone;
 	} //close setContactPersonPhone
 	
+	public ArrayList<Account> setCustomerAccounts(Account account){
+		customerAccounts.add(account); 
+		return customerAccounts;
+	}
+	
 	//get methods
 	public int getCreditRating() {
 		return creditRating;
@@ -40,6 +48,19 @@ public final class CommercialCustomer extends Customer {
 	public String getContactPersonPhone() {
 		return contactPersonPhone;
 	} //close getContactPersonPhone
+	
+	public ArrayList<Account> getCustomerAccounts() {
+		return customerAccounts;
+	}
+	
+	protected void addAccount(Account account) {
+		customerAccounts.add(account);
+	}
+	
+	// method to remove a account
+	protected void removeAccount(Account account) {
+		customerAccounts.remove(account);
+	} // close addAccount
 	
 	public String toString() {
 		String output = "Customer Type: Commercial\n"; 
