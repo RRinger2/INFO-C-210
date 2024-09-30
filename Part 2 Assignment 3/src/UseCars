@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+
+public class UseCars {
+    public static void main(String[] args) {
+        // Create an ArrayList to store references to cars
+        ArrayList<Car> carsList = new ArrayList<>();
+
+        // Create car owners
+        CarOwner owner1 = new CarOwner("John Doe", "123 Main St");
+        CarOwner owner2 = new CarOwner("Jane Smith", "456 Elm St");
+
+        // Add sports cars
+        SportsCar sportsCar1 = new SportsCar("Ferrari", "458 Italia", 2022, "VIN123", 750);
+        SportsCar sportsCar2 = new SportsCar("Porsche", "911 GT3", 2023, "VIN456", 700);
+        sportsCar1.setOwner(owner1);
+        sportsCar2.setOwner(owner2);
+
+        carsList.add(sportsCar1);
+        carsList.add(sportsCar2);
+
+        // Add sedan cars
+        SedanCar sedanCar1 = new SedanCar("Toyota", "Camry", 2022, "VIN789", 4, 16);
+        sedanCar1.setOwner(owner1);
+        carsList.add(sedanCar1);
+
+        // Find and display car information by VIN number
+        String searchVin = "VIN123";
+        for (Car car : carsList) {
+            if (car.getVinNumber().equals(searchVin)) {
+                System.out.println("Found Car by VIN: " + car);
+                System.out.println("Owner Information: " + car.getOwner());
+            }
+        }
+
+        // Display all cars 
+        System.out.println("\nList of Cars:");
+        for (Car car : carsList) {
+            System.out.println(car);
+            System.out.println("Owner Information: " + car.getOwner());
+            System.out.println();
+        }
+    }
+}
