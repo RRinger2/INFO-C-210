@@ -1,14 +1,14 @@
 //Problem 2 (Classes, Objects, and Aggregation)
 
-public class Car {
+public class Car1 {
     private String make;
     private String model;
     private int year;
     private double price;
-    private CarOwner owner;
+    private CarOwner1 owner;
 
     // Default constructor
-    public Car() {
+    public Car1() {
         this.make = "";
         this.model = "";
         this.year = 0;
@@ -17,7 +17,7 @@ public class Car {
     }
 
     // Constructor with parameters
-    public Car(String make, String model, int year, double price, CarOwner owner) {
+    public Car1(String make, String model, int year, double price, CarOwner1 owner) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -38,8 +38,8 @@ public class Car {
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
 
-    public CarOwner getOwner() { return owner; }
-    public void setOwner(CarOwner owner) { this.owner = owner; }
+    public CarOwner1 getOwner() { return owner; }
+    public void setOwner(CarOwner1 owner) { this.owner = owner; }
 
     @Override
     public String toString() {

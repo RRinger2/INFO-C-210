@@ -1,15 +1,15 @@
-public class CarOwner {
+public class CarOwner1 {
     private String name;
     private String address;
 
     // Default constructor
-    public CarOwner() {
+    public CarOwner1() {
         this.name = "";
         this.address = "";
     }
 
     // Constructor with parameters
-    public CarOwner(String name, String address) {
+    public CarOwner1(String name, String address) {
         this.name = name;
         this.address = address;
     }
