@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-public class UseCar {
+public class UseCar1 {
     public static void main(String[] args) {
         // Create some CarOwner objects
         CarOwner owner1 = new CarOwner("John Doe", "123 Elm Street");
