@@ -113,4 +113,15 @@ public class ArrayStringLog implements StringLogInterface
 
     return logString;
   }
+    public boolean uniqInsert(String element) {
+      // Check if the element already exists in the log
+      if (contains(element))
+      {
+        return false; // Element already exists, do not insert
+      }// Insert the element
+      lastIndex++;
+      log[lastIndex] = element;
+      return true; // Successfully inserted
+    }
+  }
 }
