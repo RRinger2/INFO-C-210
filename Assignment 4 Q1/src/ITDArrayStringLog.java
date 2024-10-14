@@ -75,7 +75,10 @@ public class ITDArrayStringLog
       System.out.println("5: size()");
       System.out.println("6: getName()");
       System.out.println("7: show contents");
-      System.out.println("8: stop Testing");
+      System.out.println("8: howMany(String element)");
+      System.out.println("9: isEmpty()");
+      System.out.println("10: uniqInsert(String element)");
+      System.out.println("11: stop Testing");
       if (conIn.hasNextInt())
         operation = conIn.nextInt();
       else
@@ -89,46 +92,60 @@ public class ITDArrayStringLog
       switch (operation)
       {
         case 1:  // insert
-        System.out.println("Enter string to insert:");
-        String insertString = conIn.nextLine();
-        test.insert(insertString);
-        break;
+          System.out.println("Enter string to insert:");
+          String insertString = conIn.nextLine();
+          test.insert(insertString);
+          break;
 
         case 2:  // clear
-        test.clear();
-        break;
+          test.clear();
+          break;
 
         case 3:  // contains
-        System.out.println("Enter string to search for:");
-        String searchString = conIn.nextLine();
-        System.out.println("Result: " + test.contains(searchString));
-        break;
+          System.out.println("Enter string to search for:");
+          String searchString = conIn.nextLine();
+          System.out.println("Result: " + test.contains(searchString));
+          break;
 
         case 4:  // isFull
-        System.out.println("Result: " + test.isFull());
-        break;
+          System.out.println("Result: " + test.isFull());
+          break;
 
         case 5:  // size
-        System.out.println("Result: " + test.size());
-        break;
+          System.out.println("Result: " + test.size());
+          break;
 
         case 6:  // getName
-        System.out.println("Result: " + test.getName());
-        break;
+          System.out.println("Result: " + test.getName());
+          break;
 
         case 7:  // show contents
-        System.out.println(test);
-        break;
+          System.out.println(test.toString());
+          break;
 
-        case 8:  // stop testing
-        keepGoing = false;
-        break;
+        case 8:  // howMany
+          System.out.println("Enter string to count:");
+          String countString = conIn.nextLine();
+          System.out.println("Result: " + test.howMany(countString));
+          break;
+
+        case 9:  // isEmpty
+          System.out.println("Result: " + test.isEmpty());
+          break;
+
+        case 10:  // uniqInsert
+          System.out.println("Enter string to insert:");
+          String uniqInsertString = conIn.nextLine();
+          System.out.println("Result: " + test.uniqInsert(uniqInsertString));
+          break;
+
+        case 11:  // stop Testing
+          keepGoing = false;
+          break;
 
         default:
-        System.out.println("Error in operation choice. Terminating test.");
-        return;
+          System.out.println("Error in operation choice.");
       }
     }
-  System.out.println("End of Interactive Test Driver");
   }
 }

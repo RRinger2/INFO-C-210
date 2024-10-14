@@ -25,6 +25,9 @@ public class UseStringLog {
     System.out.println("How many King Louis? " + sample.howMany("King Louis XII"));
     System.out.println("How many Elvis'? " + sample.howMany("Elvis"));
 
+    System.out.println("Trying to insert Santa..." + sample.uniqInsert("Santa"));
+    System.out.println("Trying to insert Elvis..." + sample.uniqInsert("Elvis"));
+
 
     // Clear the log
     sample.clear();

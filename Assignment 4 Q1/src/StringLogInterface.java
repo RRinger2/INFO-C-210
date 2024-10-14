@@ -38,4 +38,6 @@ public interface StringLogInterface
 
   String toString();
 
+  boolean uniqInsert(String element);
+
 }
