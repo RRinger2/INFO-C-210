@@ -1,7 +1,5 @@
 package finalProject;
 
-import java.text.DecimalFormat;
-
 public abstract class Account {
 
 		// Instance Variable 
@@ -23,19 +21,5 @@ public abstract class Account {
 		this.accountNumber = accountNumber;
 		this.balance = balance;
 		} //close non-default constructor
-
-		// Abstract method that subclasses must implement 
-		public abstract void deposit(double amount);
-		public abstract void withdraw(double amount);
-
-		// Method to display that account information
-		   public String toString() {
-			DecimalFormat df = new DecimalFormat("#,###.00"); // format the balance to show as currency 
-			String output = "Account Number: " + accountNumber + "\n";
-			output += "Account Balance: " + df.format(balance) + "\n";
-			output += "Account Owner: " + accountOwner.getCustomerName() + "\n";
-			return output;
-		} //close toString
-
 
 } //close class
