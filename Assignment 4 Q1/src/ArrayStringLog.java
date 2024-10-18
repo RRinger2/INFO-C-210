@@ -20,6 +20,19 @@ public class ArrayStringLog implements StringLogInterface
     this.name = name;
   }
 
+  // method to delete all instances of an element
+  public int deleteAll(String element){
+    int count = 0;
+    for (int i = 0; i <= lastIndex; i++)
+    {
+      if (element.equalsIgnoreCase(log[i]))
+      {
+        log[i] = null;
+        count++;
+      }
+    }
+    return count;
+  }
 
   public int howMany(String element){
     int count = 0;
