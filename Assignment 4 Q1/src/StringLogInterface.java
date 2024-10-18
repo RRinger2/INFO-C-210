@@ -14,7 +14,11 @@ public interface StringLogInterface
   //
   // Places element into this StringLog.
 
+  int deleteAll(String element);
+  // method to delete all instances of an element
+
   int howMany(String element);
+  // Returns the number of times element occurs in this StringLog.
 
   boolean isEmpty();
   // Returns true if this StringLog is empty, otherwise returns false.
@@ -37,5 +41,7 @@ public interface StringLogInterface
   // Returns the name of this StringLog.
 
   String toString();
+
+  boolean uniqInsert(String element);
 
 }

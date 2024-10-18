@@ -14,8 +14,9 @@ public interface StringLogInterface
   //
   // Places element into this StringLog.
 
+
+
   int howMany(String element);
-  // Returns the number of elements in this StringLog.
 
   boolean isEmpty();
   // Returns true if this StringLog is empty, otherwise returns false.
@@ -38,5 +39,7 @@ public interface StringLogInterface
   // Returns the name of this StringLog.
 
   String toString();
+
+  boolean uniqInsert(String element);
 
 }

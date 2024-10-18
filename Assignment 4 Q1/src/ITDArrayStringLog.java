@@ -1,10 +1,4 @@
-//----------------------------------------------------------------------------
-// ITDArrayStringLog.java         by Dale/Joyce/Weems
-//
-// Interactive Test Driver for the ArrayStringLog class
-//----------------------------------------------------------------------------
-
-import java.util.*;
+import java.util.Scanner;
 
 public class ITDArrayStringLog
 {
@@ -59,23 +53,31 @@ public class ITDArrayStringLog
         break;
 
       default:
-        System.out.println("Error in constructor choice. Terminating test.");
+        System.out.println("Error: invalid constructor choice.");
+        System.out.println("Terminating test.");
         return;
     }
 
-    // Handle test cases
+    // Main loop
     keepGoing = true;
     while (keepGoing)
     {
+      // Display operation choices
       System.out.println("\nChoose an operation:");
       System.out.println("1: insert(String element)");
-      System.out.println("2: clear()");
-      System.out.println("3: contains(String element)");
-      System.out.println("4: isFull()");
-      System.out.println("5: size()");
-      System.out.println("6: getName()");
-      System.out.println("7: show contents");
-      System.out.println("8: stop Testing");
+      System.out.println("2: deleteAll(String element)");
+      System.out.println("3: howMany(String element)");
+      System.out.println("4: isEmpty()");
+      System.out.println("5: isFull()");
+      System.out.println("6: size()");
+      System.out.println("7: contains(String element)");
+      System.out.println("8: clear()");
+      System.out.println("9: getName()");
+      System.out.println("10: toString()");
+      System.out.println("11: uniqInsert(String element)");
+      System.out.println("12: Quit test");
+
+      // Get user's operation choice
       if (conIn.hasNextInt())
         operation = conIn.nextInt();
       else
@@ -86,49 +88,73 @@ public class ITDArrayStringLog
       }
       skip = conIn.nextLine();
 
+      // Perform operation
       switch (operation)
       {
-        case 1:  // insert
-        System.out.println("Enter string to insert:");
-        String insertString = conIn.nextLine();
-        test.insert(insertString);
-        break;
+        case 1:
+          System.out.println("Enter a string to insert:");
+          String insertElement = conIn.nextLine();
+          test.insert(insertElement);
+          break;
 
-        case 2:  // clear
-        test.clear();
-        break;
+        case 2:
+          System.out.println("Enter a string to delete:");
+          String deleteElement = conIn.nextLine();
+          int count = test.deleteAll(deleteElement);
+          System.out.println("Deleted " + count + " instances of '" + deleteElement + "'");
+          break;
 
-        case 3:  // contains
-        System.out.println("Enter string to search for:");
-        String searchString = conIn.nextLine();
-        System.out.println("Result: " + test.contains(searchString));
-        break;
+        case 3:
+          System.out.println("Enter a string to count:");
+          String countElement = conIn.nextLine();
+          int howMany = test.howMany(countElement);
+          System.out.println("There are " + howMany + " instances of '" + countElement + "'");
+          break;
 
-        case 4:  // isFull
-        System.out.println("Result: " + test.isFull());
-        break;
+        case 4:
+          System.out.println("Is the log empty? " + test.isEmpty());
+          break;
 
-        case 5:  // size
-        System.out.println("Result: " + test.size());
-        break;
+        case 5:
+          System.out.println("Is the log full? " + test.isFull());
+          break;
 
-        case 6:  // getName
-        System.out.println("Result: " + test.getName());
-        break;
+        case 6:
+          System.out.println("The size of the log is " + test.size());
+          break;
 
-        case 7:  // show contents
-        System.out.println(test);
-        break;
+        case 7:
+          System.out.println("Enter a string to search for:");
+          String searchElement = conIn.nextLine();
+          System.out.println("Does the log contain '" + searchElement + "'? " + test.contains(searchElement));
+          break;
 
-        case 8:  // stop testing
-        keepGoing = false;
-        break;
+        case 8:
+          test.clear();
+          System.out.println("The log has been cleared.");
+          break;
+
+        case 9:
+          System.out.println("The name of the log is '" + test.getName() + "'");
+          break;
+
+        case 10:
+          System.out.println(test.toString());
+          break;
+
+        case 11:
+          System.out.println("Enter a string to insert uniquely:");
+          String uniqInsertElement = conIn.nextLine();
+          System.out.println("Was the string inserted? " + test.uniqInsert(uniqInsertElement));
+          break;
+
+        case 12:
+          keepGoing = false;
+          break;
 
         default:
-        System.out.println("Error in operation choice. Terminating test.");
-        return;
+          System.out.println("Error: invalid operation choice.");
       }
     }
-  System.out.println("End of Interactive Test Driver");
   }
 }

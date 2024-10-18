@@ -20,6 +20,19 @@ public class ArrayStringLog implements StringLogInterface
     this.name = name;
   }
 
+  // method to delete all instances of an element
+  public int deleteAll(String element){
+    int count = 0;
+    for (int i = 0; i <= lastIndex; i++)
+    {
+      if (element.equalsIgnoreCase(log[i]))
+      {
+        log[i] = null;
+        count++;
+      }
+    }
+    return count;
+  }
 
   public int howMany(String element){
     int count = 0;
@@ -86,7 +99,7 @@ public class ArrayStringLog implements StringLogInterface
       else
         location++;
     }
-   return false;
+    return false;
   }
 
   public void clear()
@@ -113,15 +126,14 @@ public class ArrayStringLog implements StringLogInterface
 
     return logString;
   }
-    public boolean uniqInsert(String element) {
-      // Check if the element already exists in the log
-      if (contains(element))
-      {
-        return false; // Element already exists, do not insert
-      }// Insert the element
-      lastIndex++;
-      log[lastIndex] = element;
-      return true; // Successfully inserted
-    }
+  public boolean uniqInsert(String element) {
+    // Check if the element already exists in the log
+    if (contains(element))
+    {
+      return false; // Element already exists, do not insert
+    }// Insert the element
+    lastIndex++;
+    log[lastIndex] = element;
+    return true; // Successfully inserted
   }
 }
