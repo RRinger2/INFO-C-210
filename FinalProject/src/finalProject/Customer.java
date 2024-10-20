@@ -28,19 +28,22 @@ public class Customer {
 	
 	//get/accessor methods
 	public String getCustomerID() {
-		return customerID;
+		return this.customerID;
 	} //close getCustomerID
 	
 	public String getCustomerName() {
-		return customerName;
+		return this.customerName;
 	} //close getCustomerName
 	
 	//toString method
 	public String toString() {
-		String output = "";
-		output += "Customer ID: " + customerID + "\n";
-		output += "Customer Name: " + customerName + "\n";
+		String output = "Customer ID: " + customerName + "\n";
+		output += "Customer Name: " + customerID + "\n";
 		return output;
 	} //close toString
+	
+	public void displayInfo() {
+		System.out.println(this.toString()); 
+	}
 	
 } // close class
