@@ -60,14 +60,9 @@ public final class RegularAccount extends Account {
 	@Override
 	public double deposit(double amount) {
 		// increase the balance 
-		try {
-			balance += amount;
-			System.out.println("Deposited $" + df.format(amount) + " into Regular Account " + accountNumber + ".");
-			System.out.println("The new balance is $" + df.format(balance) + ".");
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		} //close try/catch
-
+		balance += amount;
+		System.out.println("Deposited $" + df.format(amount) + " into Regular Account " + accountNumber + ".");
+		System.out.println("The new balance is $" + df.format(balance) + ".");
 		return balance;
 	} //close deposit 
 

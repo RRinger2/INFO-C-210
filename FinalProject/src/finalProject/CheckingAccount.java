@@ -61,15 +61,11 @@ public final class CheckingAccount extends Account {
 	// Deposit method
 	public double deposit(double amount) {
 		 //this needs a try catch 
-		try {
-			balance += amount;
+		balance += amount;
 			System.out.println("Deposited $" + df.format(amount) + " into Checking Account " + accountNumber + ".");
 		 	System.out.println("The new balance is $" + df.format(balance) + ".");
 		 	transactionCount++;
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		} //close try/catch
-		return balance; 
+		    return balance; 
 	} // close deposit 
 	   
 	// Withdraw method

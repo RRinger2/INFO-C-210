@@ -2,13 +2,15 @@ package finalProject;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class BankOperator {
 	
-
-    public static Scanner scanner = new Scanner(System.in);
+	public static Scanner scanner = new Scanner(System.in);
+	
+	InputMismatchException e = new InputMismatchException();
     
     public static ArrayList<Account> accounts = new ArrayList<Account>();
     public static ArrayList<Customer> customers = new ArrayList<Customer>();
@@ -160,9 +162,9 @@ public class BankOperator {
     public Account findAccount() {
     	System.out.print("Enter account number: ");
         String accountNumber = scanner.nextLine();
-        
-    	Account foundAccount = null;
-      	for (Account account : accounts)
+        Account foundAccount = null;
+      	
+         for (Account account : accounts)
         	if (account.accountNumber.equals(accountNumber)) {
                 foundAccount = account; 
                 break; 
@@ -170,32 +172,51 @@ public class BankOperator {
 		        return foundAccount; 
 		    } else {
 		    	return null; 
-		    }
-          } //close findAccount 
+		    } //close if-else statement
+      } //close findAccount 
 
     // method to deposit 4th case
     private void deposit() {
         Account account = findAccount();
+        boolean valid;
+        
         if (account != null) {
-        	System.out.print("Enter deposit amount: ");
-            double amount = scanner.nextDouble();
-            account.deposit(amount);
-        } else {
-	        System.out.println("We were unable to locate that account."); 
-        } //close if else
+        	do { try {
+            		System.out.print("Enter Deposit amount: ");
+                	double amount = scanner.nextDouble();
+					account.deposit(amount);
+					valid = true;
+				} catch (Exception e) {
+					System.out.println("Amount must be a number.");
+					scanner.nextLine();
+					valid = false;
+				} 
+			} while (!valid); //close do-while
+				} else {
+					System.out.println("We were unable to locate that account."); 
+        } //close if-else
     } //close deposit 
 
     // method to withdraw 5th case
     private void withdraw() {
         Account account = findAccount();
-        if (account != null) {
-            System.out.print("Enter withdrawal amount: ");
-            double amount = scanner.nextDouble();
-            account.withdraw(amount);
-        } else {
-	        System.out.println("We were unable to locate that account."); 
-        } //close if else 
+        boolean valid;
         
+        if (account != null) {
+        	do { try {
+            		System.out.print("Enter Withdrawal amount: ");
+                	double amount = scanner.nextDouble();
+					account.withdraw(amount);
+					valid = true;
+				} catch (Exception e) {
+					System.out.println("Amount must be a number.");
+					scanner.nextLine();
+					valid = false;
+				} 
+			} while (!valid); //close do-while
+				} else {
+					System.out.println("We were unable to locate that account."); 
+        } //close if-else
     } //close withdraw 
 
     // method to display account info 6th case
